@@ -1,0 +1,15 @@
+{
+  "name": "windows-apis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ffi-napi": "^2.4.5",
+    "ref-napi": "^1.4.2",
+    "ref-struct-napi": "^1.1.0"
+  }
+}
