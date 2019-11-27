@@ -1,4 +1,4 @@
-# windows-apis-test
+# Windows APIs test
 Node.js Windows 10 APIs 테스트를 목적으로 만든 저장소입니다.
 
 ## 설치
