@@ -1,5 +1,3 @@
-const { keyTap } = require('./windows/input')
+const addon = require('bindings')('hello')
 
-keyTap(65)
-keyTap(65)
-keyTap(65)
+console.log(addon.add())

@@ -1,7 +1,9 @@
 const ffi = require('ffi-napi')
+const ref = require('ref-napi')
 const StructType = require('ref-struct-napi')
-const x64 = require('os').arch() === 'x64'
 
+// The size, in bytes, of an INPUT structure. If CB_SIZE is not the size of an INPUT structure, the function fails.
+const CB_SIZE = require('os').arch() === 'x64' ? 40 : 28
 const INPUT_KEYBOARD = 1
 const KEYEVENTF_KEYUP = 0x0002
 const KEYEVENTF_SCANCODE = 0x0008
@@ -35,15 +37,17 @@ const createInput = (keyCode, keyUp) => {
   input.dwFlags = keyUp ? KEYEVENTF_SCANCODE | KEYEVENTF_KEYUP : KEYEVENTF_SCANCODE
   input.wScan = convertKeyCodeToScanCode(keyCode)
 
+  console.log(input.wScan)
+
   return input
 }
 
 const keyUp = (keyCode) => {
-  User32.SendInput(1, createInput(keyCode, true), x64 ? 40 : 28)
+  User32.SendInput(1, createInput(keyCode, true), CB_SIZE)
 }
 
 const keyDown = (keyCode) => {
-  User32.SendInput(1, createInput(keyCode, false), x64 ? 40 : 28)
+  User32.SendInput(1, createInput(keyCode, false), CB_SIZE)
 }
 
 const keyTap = (keyCode) => {
