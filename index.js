@@ -1,3 +1,4 @@
-const addon = require('bindings')('hello')
+const input = require('bindings')('input')
 
-console.log(addon.add())
+input.keydown()
+input.keyup()

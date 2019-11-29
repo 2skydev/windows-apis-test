@@ -1,10 +1,10 @@
 {
   "targets": [
     {
-      "target_name": "hello",
+      "target_name": "input",
       "cflags!": [ "-fno-exceptions" ],
       "cflags_cc!": [ "-fno-exceptions" ],
-      "sources": [ "src/cc/hello.cc" ],
+      "sources": [ "src/cc/input.cc" ],
       "include_dirs": [
         "<!@(node -p \"require('node-addon-api').include\")"
       ],
